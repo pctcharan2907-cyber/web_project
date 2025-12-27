@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feedback | Mental Health Support</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📝 Share Your Feedback</h1>
+    <p class="subtitle">Help us improve the Mental Health Support Platform</p>
+  </header>
+
+  <main style="padding:18px 20px; max-width:800px; margin:0 auto; width:100%">
+
+    <div style="display:flex; gap:12px; align-items:center; margin-bottom:20px;">
+      <a href="javascript:history.back()" class="btn secondary">← Back</a>
+      <a href="adminl.html" class="btn secondary">Back</a>
+    </div>
+
+    <section class="dashboard-section">
+      <h2>💭 We Value Your Input</h2>
+      <p style="margin-bottom:24px; color:var(--muted-text); line-height:1.8;">
+        Your feedback helps us create a better mental health support experience for all students. 
+        Please share your thoughts, suggestions, or report any issues you've encountered.
+      </p>
+
+      <form id="feedbackForm" class="card" style="padding:32px;">
+        <div style="margin-bottom:20px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600; color:var(--text-color);">
+            Your Name <span style="color:var(--muted-text); font-weight:400;">(Optional)</span>
+          </label>
+          <input id="feedbackName" type="text" placeholder="Enter your name or remain anonymous" />
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600; color:var(--text-color);">
+            Email <span style="color:var(--muted-text); font-weight:400;">(Optional)</span>
+          </label>
+          <input id="feedbackEmail" type="email" placeholder="your.email@college.edu" />
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600; color:var(--text-color);">
+            Feedback Type <span style="color:var(--danger);">*</span>
+          </label>
+          <select id="feedbackType" required style="width:100%; padding:14px; border:2px solid var(--input-border); border-radius:12px; background:var(--card-bg); color:var(--text-color); font-family:'Inter',sans-serif; font-size:1rem; cursor:pointer;">
+            <option value="">Select a category...</option>
+            <option value="suggestion">💡 Suggestion</option>
+            <option value="bug">🐛 Bug Report</option>
+            <option value="feature">✨ Feature Request</option>
+            <option value="general">💬 General Feedback</option>
+            <option value="appreciation">❤ Appreciation</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600; color:var(--text-color);">
+            Rating <span style="color:var(--muted-text); font-weight:400;">(Optional)</span>
+          </label>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <input id="feedbackRating" type="range" min="1" max="5" value="5" style="flex:1;" />
+            <span id="ratingValue" style="font-size:1.8rem; font-weight:700; color:var(--primary); min-width:60px; text-align:center;">5 ⭐</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:var(--muted-text); margin-top:6px;">
+            <span>Poor</span>
+            <span>Excellent</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <label style="display:block; margin-bottom:8px; font-weight:600; color:var(--text-color);">
+            Your Message <span style="color:var(--danger);">*</span>
+          </label>
+          <textarea id="feedbackMessage" required placeholder="Share your thoughts, suggestions, or describe the issue..." style="width:100%; min-height:150px; padding:16px; border:2px solid var(--input-border); border-radius:12px; background:var(--card-bg); color:var(--text-color); font-family:'Inter',sans-serif; font-size:1rem; resize:vertical;"></textarea>
+        </div>
+
+        <div style="text-align:right;">
+          <button type="submit" class="btn" style="padding:16px 40px;">
+            Submit Feedback 🚀
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="dashboard-section">
+      <h2>❓ Quick Survey</h2>
+      <div class="card" style="padding:28px;">
+        <p style="margin-bottom:20px; color:var(--text-color); font-size:1.05rem; font-weight:600;">
+          How would you rate your overall experience with the platform?
+        </p>
+        
+        <div id="surveyOptions" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:16px; margin-bottom:20px;">
+          <button class="survey-btn" data-value="excellent" style="padding:20px; border:2px solid var(--input-border); border-radius:16px; background:var(--card-bg); cursor:pointer; transition:all 0.3s ease; font-size:2rem;">
+            😄
+            <div style="font-size:0.9rem; margin-top:8px; color:var(--text-color);">Excellent</div>
+          </button>
+          <button class="survey-btn" data-value="good" style="padding:20px; border:2px solid var(--input-border); border-radius:16px; background:var(--card-bg); cursor:pointer; transition:all 0.3s ease; font-size:2rem;">
+            🙂
+            <div style="font-size:0.9rem; margin-top:8px; color:var(--text-color);">Good</div>
+          </button>
+          <button class="survey-btn" data-value="average" style="padding:20px; border:2px solid var(--input-border); border-radius:16px; background:var(--card-bg); cursor:pointer; transition:all 0.3s ease; font-size:2rem;">
+            😐
+            <div style="font-size:0.9rem; margin-top:8px; color:var(--text-color);">Average</div>
+          </button>
+          <button class="survey-btn" data-value="poor" style="padding:20px; border:2px solid var(--input-border); border-radius:16px; background:var(--card-bg); cursor:pointer; transition:all 0.3s ease; font-size:2rem;">
+            😞
+            <div style="font-size:0.9rem; margin-top:8px; color:var(--text-color);">Poor</div>
+          </button>
+        </div>
+        
+        <div id="surveyThankYou" style="display:none; padding:20px; background:linear-gradient(135deg, rgba(72,187,120,0.1), rgba(72,187,120,0.05)); border-radius:12px; text-align:center; color:var(--success); font-weight:600;">
+          ✅ Thank you for your feedback!
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:40px; text-align:center;">
+      <p>© 2025 Mental Health Support Platform | Your voice matters 💚</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
