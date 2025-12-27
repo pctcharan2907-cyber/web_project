@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Login Page</title>
+
+    <style>
+        :root {
+            --bg-overlay: rgba(0, 0, 80, 0.55);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text-color: #000;
+        }
+
+        /* DARK THEME (Applied by JS using your function) */
+        .dark-theme {
+            --bg-overlay: rgba(0, 0, 40, 0.65);
+            --card-bg: rgba(20, 20, 20, 0.85);
+            --text-color: #fff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+                url("/mnt/data/74d5869e-8a91-4953-beb8-a3f624992c31.jpg")
+                no-repeat center center fixed;
+            background-size: cover;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            transition: 0.4s background, 0.4s color;
+        }
+
+        .login-box {
+            width: 320px;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            color: var(--text-color);
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+            transition: 0.4s;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.6);
+        }
+
+        .dark-theme .login-box input {
+            background: rgba(0,0,0,0.4);
+            color: white;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #501bab;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Floating Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #ffffffaa;
+            border: none;
+            padding: 12px 14px;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .dark-theme .theme-toggle {
+            background: #222;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="indexl.html">
+            <input type="text" placeholder="Enter Username" required />
+            <input type="password" placeholder="Enter Password" required />
+            <button class="login-btn" type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        /* ---------------------------
+           YOUR THEME SYSTEM INSERTED
+        --------------------------- */
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-theme');
+            } else {
+                document.documentElement.classList.remove('dark-theme');
+            }
+            localStorage.setItem('theme', theme);
+
+            const sel = document.getElementById('themeSelect');
+            if (sel) sel.value = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark-theme');
+            applyTheme(isDark ? 'light' : 'dark');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Floating theme button
+            const btn = document.createElement('button');
+            btn.id = 'themeToggleBtn';
+            btn.className = 'theme-toggle';
+            btn.title = 'Toggle Theme';
+            btn.innerHTML = '🌓';
+            btn.addEventListener('click', toggleTheme);
+            document.body.appendChild(btn);
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+        });
+    </script>
+
+</body>
+</html>
